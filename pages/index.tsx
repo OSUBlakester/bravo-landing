@@ -923,7 +923,7 @@ export default function BravoLandingPage() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <Image
                 src="/images/bravo-logo.jpg"
@@ -1044,6 +1044,37 @@ export default function BravoLandingPage() {
                   </a>
                 </p>
               </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Legal &amp; Help</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="/eula" className="text-gray-400 hover:text-white transition-colors">
+                    EULA
+                  </a>
+                </li>
+                <li>
+                  <a href="/notices" className="text-gray-400 hover:text-white transition-colors">
+                    Third-Party Notices
+                  </a>
+                </li>
+                <li>
+                  <a href="/support" className="text-gray-400 hover:text-white transition-colors">
+                    Help &amp; Support
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 

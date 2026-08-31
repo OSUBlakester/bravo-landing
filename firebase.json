@@ -7,8 +7,16 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-  { "source": "/privacy", "destination": "/privacy.html" },
-  { "source": "/privacy/", "destination": "/privacy.html" }
+      { "source": "/privacy", "destination": "/privacy.html" },
+      { "source": "/privacy/", "destination": "/privacy.html" },
+      { "source": "/terms", "destination": "/terms.html" },
+      { "source": "/terms/", "destination": "/terms.html" },
+      { "source": "/eula", "destination": "/eula.html" },
+      { "source": "/eula/", "destination": "/eula.html" },
+      { "source": "/notices", "destination": "/notices.html" },
+      { "source": "/notices/", "destination": "/notices.html" },
+      { "source": "/support", "destination": "/support.html" },
+      { "source": "/support/", "destination": "/support.html" }
     ]
   }
 }
