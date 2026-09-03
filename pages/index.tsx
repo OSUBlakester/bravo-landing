@@ -32,10 +32,10 @@ const BRAVO_WINS = [
   },
   {
     icon: MessagesSquare,
-    title: "A Regular in Three Speech Groups",
+    title: "A Regular in Speech Groups",
     body:
-      "Brady now takes part in three different speech groups, where he stays engaged and can talk about recent " +
-      "events with ease.",
+      "Brady now takes part in multiple speech groups with other AAC users, where he stays engaged and can talk " +
+      "about recent events with ease.",
   },
 ] as const
 
