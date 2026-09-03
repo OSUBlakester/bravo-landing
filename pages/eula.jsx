@@ -14,7 +14,7 @@ const CONTENT = `<h1>End User License Agreement — Apple App Store</h1>
 <h2>1. What this agreement is, and what governs</h2>
 <p>This End User License Agreement (this "<strong>License</strong>") applies to your use of the <strong>Bravo application for iOS and iPadOS</strong> (the "<strong>Licensed Application</strong>") obtained from the Apple App Store.</p>
 <p>Your use of the Licensed Application is governed by:</p>
-<p>1. our <strong>Terms of Service</strong> at https://talkwithbravo.com/terms, which are <strong>incorporated into this License in full</strong> and set out how the Service works, what you may and may not do with it, the limits of AI-generated suggestions, disclaimers, and limitations of liability; 2. our <strong>Privacy Policy</strong> at https://talkwithbravo.com/privacy; and 3. <strong>this License</strong>, which adds the terms Apple Inc. ("<strong>Apple</strong>") requires for applications distributed through the App Store.</p>
+<ol><li>our <strong>Terms of Service</strong> at https://talkwithbravo.com/terms, which are <strong>incorporated into this License in full</strong> and set out how the Service works, what you may and may not do with it, the limits of AI-generated suggestions, disclaimers, and limitations of liability;</li><li>our <strong>Privacy Policy</strong> at https://talkwithbravo.com/privacy; and</li><li><strong>this License</strong>, which adds the terms Apple Inc. ("<strong>Apple</strong>") requires for applications distributed through the App Store.</li></ol>
 <p><strong>If a term of this License conflicts with the Terms of Service, this License controls — but only as to the Licensed Application.</strong> For every other part of the Service, the Terms of Service control. This License does not provide for usage rules that conflict with the Apple Media Services Terms and Conditions or the Volume Content Terms in effect as of the effective date above.</p>
 <p>By downloading, installing, or using the Licensed Application, you agree to this License and to the Terms of Service.</p>
 <h2>2. Acknowledgement</h2>
@@ -29,7 +29,7 @@ const CONTENT = `<h1>End User License Agreement — Apple App Store</h1>
 <p>In the event of any failure of the Licensed Application to conform to any applicable warranty, <strong>you may notify Apple, and Apple will refund the purchase price</strong> (if any) for the Licensed Application to you. To the maximum extent permitted by applicable law, <strong>Apple will have no other warranty obligation whatsoever</strong> with respect to the Licensed Application, and any other claims, losses, liabilities, damages, costs, or expenses attributable to any failure to conform to any warranty will be <strong>our sole responsibility</strong>.</p>
 <p>The disclaimers in Section 15 of the Terms of Service apply to the Licensed Application. <strong>Your statutory rights as a consumer are not affected.</strong></p>
 <h2>6. Product claims</h2>
-<p>You and we acknowledge that <strong>we, not Apple, are responsible for addressing any claims</strong> by you or any third party relating to the Licensed Application or your possession and/or use of it, including but not limited to: (i) product liability claims; (ii) any claim that the Licensed Application fails to conform to any applicable legal or regulatory requirement; and (iii) claims arising under consumer protection or similar legislation.</p>
+<p>You and we acknowledge that <strong>we, not Apple, are responsible for addressing any claims</strong> by you or any third party relating to the Licensed Application or your possession and/or use of it, including but not limited to: (i) product liability claims; (ii) any claim that the Licensed Application fails to conform to any applicable legal or regulatory requirement; and (iii) claims arising under consumer protection or similar legislation[, including in connection with the Licensed Application's use of the HealthKit and HomeKit frameworks].</p>
 <p><strong>Nothing in this License limits our liability to you beyond what is permitted by applicable law.</strong></p>
 <h2>7. Intellectual property rights</h2>
 <p>You and we acknowledge that, in the event of any third-party claim that the Licensed Application or your possession and use of it infringes that third party's intellectual property rights, <strong>we, not Apple, will be solely responsible</strong> for the investigation, defense, settlement, and discharge of any such intellectual property infringement claim.</p>
@@ -85,6 +85,10 @@ export default function Eula() {
         .legal table { margin: 0; width: 100%; font-size: 0.95rem; }
         .legal thead { background: #f9fafb; }
         .legal th, .legal td { padding: 0.75rem 1rem; text-align: left; vertical-align: top; }
+        .legal blockquote { border-left: 3px solid #ea580c; background: #fff7ed; margin: 1.5rem 0; padding: 1rem 1.25rem; font-style: normal; }
+        .legal blockquote p { margin: 0; }
+        .legal blockquote p + p { margin-top: 0.75rem; }
+        .legal blockquote::before, .legal blockquote::after { content: none; }
         .legal code { background: #f3f4f6; padding: 0.1em 0.35em; border-radius: 0.25rem; font-weight: 500; }
         .legal code::before, .legal code::after { content: none; }
       `}</style>

@@ -71,9 +71,9 @@ const CONTENT = `<h1>Terms of Service</h1>
 <p>Bravo lets you upload your own images. <strong>You must only upload images you have the right to use.</strong> Do not upload photographs, artwork, or symbols belonging to someone else without their permission.</p>
 <p>We respond to notices of claimed copyright infringement under the Digital Millennium Copyright Act, and we have registered a designated agent with the United States Copyright Office.</p>
 <p><strong>To report infringing material</strong>, send a written notice to our designated agent:</p>
-<p>&gt; <strong>Copyright Agent</strong>, Talk with Bravo, LLC &gt; 10178 Foxridge Circle, Highlands Ranch, CO 80126, USA &gt; Telephone: <strong>+1 720 635 0555</strong> &gt; Email: <strong>admin@talkwithbravo.com</strong></p>
+<blockquote><p><strong>Copyright Agent</strong>, Talk with Bravo, LLC<br />10178 Foxridge Circle, Highlands Ranch, CO 80126, USA<br />Telephone: <strong>+1 720 635 0555</strong><br />Email: <strong>admin@talkwithbravo.com</strong></p></blockquote>
 <p>Under 17 U.S.C. §512(c)(3), your notice must include:</p>
-<p>1. a physical or electronic signature of the copyright owner or a person authorized to act on their behalf; 2. identification of the copyrighted work you say has been infringed; 3. identification of the material you say is infringing, with enough detail for us to find it; 4. your address, telephone number, and email address; 5. a statement that you have a good-faith belief the use is not authorized by the copyright owner, its agent, or the law; and 6. a statement, <strong>made under penalty of perjury</strong>, that the information in the notice is accurate and that you are the copyright owner or authorized to act on their behalf.</p>
+<ol><li>a physical or electronic signature of the copyright owner or a person authorized to act on their behalf;</li><li>identification of the copyrighted work you say has been infringed;</li><li>identification of the material you say is infringing, with enough detail for us to find it;</li><li>your address, telephone number, and email address;</li><li>a statement that you have a good-faith belief the use is not authorized by the copyright owner, its agent, or the law; and</li><li>a statement, <strong>made under penalty of perjury</strong>, that the information in the notice is accurate and that you are the copyright owner or authorized to act on their behalf.</li></ol>
 <p>We will remove or disable access to material we remove in response to a valid notice, and we will make a reasonable attempt to tell the person who uploaded it.</p>
 <p><strong>Counter-notification.</strong> If your material was removed and you believe that was a mistake or a misidentification, you may send our agent a counter-notice under 17 U.S.C. §512(g)(3), containing your signature, identification of the removed material and where it appeared, a statement under penalty of perjury that you have a good-faith belief it was removed by mistake or misidentification, and your name, address, telephone number, and a consent to the jurisdiction of the federal court for your district (or, if you are outside the United States, for Douglas County, Colorado), and that you will accept service from the person who complained. We may restore the material in <strong>10 to 14 business days</strong> unless our agent receives notice that a court action has been filed.</p>
 <p><strong>Repeat infringers.</strong> We will terminate, in appropriate circumstances, the accounts of users who repeatedly infringe copyright.</p>
@@ -173,6 +173,10 @@ export default function Terms() {
         .legal table { margin: 0; width: 100%; font-size: 0.95rem; }
         .legal thead { background: #f9fafb; }
         .legal th, .legal td { padding: 0.75rem 1rem; text-align: left; vertical-align: top; }
+        .legal blockquote { border-left: 3px solid #ea580c; background: #fff7ed; margin: 1.5rem 0; padding: 1rem 1.25rem; font-style: normal; }
+        .legal blockquote p { margin: 0; }
+        .legal blockquote p + p { margin-top: 0.75rem; }
+        .legal blockquote::before, .legal blockquote::after { content: none; }
         .legal code { background: #f3f4f6; padding: 0.1em 0.35em; border-radius: 0.25rem; font-weight: 500; }
         .legal code::before, .legal code::after { content: none; }
       `}</style>

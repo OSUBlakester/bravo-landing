@@ -167,6 +167,10 @@ export default function Privacy() {
         .legal table { margin: 0; width: 100%; font-size: 0.95rem; }
         .legal thead { background: #f9fafb; }
         .legal th, .legal td { padding: 0.75rem 1rem; text-align: left; vertical-align: top; }
+        .legal blockquote { border-left: 3px solid #ea580c; background: #fff7ed; margin: 1.5rem 0; padding: 1rem 1.25rem; font-style: normal; }
+        .legal blockquote p { margin: 0; }
+        .legal blockquote p + p { margin-top: 0.75rem; }
+        .legal blockquote::before, .legal blockquote::after { content: none; }
         .legal code { background: #f3f4f6; padding: 0.1em 0.35em; border-radius: 0.25rem; font-weight: 500; }
         .legal code::before, .legal code::after { content: none; }
       `}</style>
