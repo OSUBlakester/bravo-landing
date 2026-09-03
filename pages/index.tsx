@@ -2,11 +2,42 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube } from "lucide-react"
+import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy } from "lucide-react"
 import Image from "next/image"
 import { useState, type ReactNode } from "react"
 
 const BRAVO_YOUTUBE_URL = "https://www.youtube.com/@TalkWithBravo"
+
+const BRAVO_WINS = [
+  {
+    icon: MessageCircle,
+    title: "A Curious Question, Answered Directly",
+    body:
+      "A little boy noticed Brady was using oxygen and wanted to know why. With Bravo, he could ask Brady himself \u2014 " +
+      "and Brady answered him directly: \u201cMy lungs just need a little help.\u201d",
+  },
+  {
+    icon: Sparkles,
+    title: "Catching Up With Cousins",
+    body:
+      "At a large family gathering, Brady asked his cousins about the specific things they had each been up to lately, " +
+      "in the moment, without waiting for someone to guess what he wanted to say.",
+  },
+  {
+    icon: Plane,
+    title: "Commenting on the World",
+    body:
+      "Brady takes Bravo along on trips. On a cruise and at Walt Disney World, he shared what he thought of the " +
+      "scenery and the activities as they happened.",
+  },
+  {
+    icon: MessagesSquare,
+    title: "A Regular in Three Speech Groups",
+    body:
+      "Brady now takes part in three different speech groups, where he stays engaged and can talk about recent " +
+      "events with ease.",
+  },
+] as const
 
 const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://www.instagram.com/talkwithbravo/", handle: "@talkwithbravo" },
@@ -432,7 +463,7 @@ export default function BravoLandingPage() {
                     Brady's ability to fully express himself and connect socially.
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    Blake created Bravo out of love for Brady, with a single goal: to give him more to say and more ways
+                    Anne and Blake created Bravo out of love for Brady, with a single goal: to give him more to say and more ways
                     to say it. We had watched Brady and AAC grow together for two decades, and we knew there had to be a
                     better way &mdash; one that let him start the conversation, share what he was actually thinking, and
                     truly engage with the people around him.
@@ -454,6 +485,39 @@ export default function BravoLandingPage() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Bravo Wins */}
+            <div className="mt-16">
+              <div className="text-center">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-600">
+                  <Trophy className="h-4 w-4" />
+                  Bravo Wins
+                </span>
+                <h3 className="mt-3 text-2xl md:text-3xl font-bold text-gray-900">Moments That Made It Worth It</h3>
+                <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-orange-600" />
+                <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+                  Real moments from Brady's life since Bravo &mdash; the kind of everyday connection that used to be out
+                  of reach.
+                </p>
+              </div>
+
+              <div className="mt-10 grid gap-6 sm:grid-cols-2">
+                {BRAVO_WINS.map((win) => (
+                  <Card
+                    key={win.title}
+                    className="h-full border-2 border-orange-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+                  >
+                    <CardContent className="flex h-full flex-col p-6">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-orange-100">
+                        <win.icon className="h-5 w-5 text-orange-600" />
+                      </div>
+                      <h4 className="mt-4 text-lg font-semibold text-gray-900">{win.title}</h4>
+                      <p className="mt-2 text-gray-600 leading-relaxed">{win.body}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
