@@ -425,14 +425,17 @@ export default function BravoLandingPage() {
               <CardContent className="p-8">
                 <div className="prose prose-lg max-w-none">
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    Blake created Bravo out of love for our son, Brady. For the past 20 years, Brady has successfully used Augmentative and Alternative Communication (AAC) to communicate
+                    Augmentative and Alternative Communication (AAC) refers to all the ways someone communicates besides
+                    talking. For the past 20 years, our son Brady has used AAC to communicate. He has always used a
+                    single switch to access a communication device to express himself. While he is incredibly proficient
+                    with his communication device, the limitations of pre-programmed vocabulary sometimes hindered
+                    Brady's ability to fully express himself and connect socially.
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    AAC refers to all the ways someone communicates besides talking. Brady has always used a single switch to access a communication device to express himself. While he is incredibly proficient with his communication device, the limitations of pre-programmed vocabulary sometimes hindered Brady's ability to fully express himself and connect socially. 
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    Bravo was created by parents of a son who has been using AAC for over 20 years. We've seen how Brady
-                    and AAC have progressed together, but we knew there had to be a better way.
+                    Blake created Bravo out of love for Brady, with a single goal: to give him more to say and more ways
+                    to say it. We had watched Brady and AAC grow together for two decades, and we knew there had to be a
+                    better way &mdash; one that let him start the conversation, share what he was actually thinking, and
+                    truly engage with the people around him.
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-6">
                     With AI, we created an AAC application that truly captures Brady's voice. Our goal is to create an
