@@ -79,7 +79,7 @@ export default function BravoUniversity() {
                         </div>
                         <h3 className="mt-4 text-xl font-semibold text-gray-900">{course.title}</h3>
                         <p className="mt-2 flex-1 text-gray-600 leading-relaxed">{course.blurb}</p>
-                        {course.duration && <p className="mt-4 text-sm text-gray-500">{course.duration}</p>}
+                        <p className="mt-4 text-sm text-gray-500">{course.slideCount} slides</p>
                         <span className="mt-5 inline-flex items-center font-medium text-orange-700 group-hover:text-orange-800">
                           Start course
                           <span aria-hidden="true" className="ml-2 transition-transform group-hover:translate-x-1">

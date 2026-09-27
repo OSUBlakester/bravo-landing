@@ -1,0 +1,23 @@
+[
+  {
+    "number": "101",
+    "title": "Setting Up a New Account",
+    "href": "/bravo-university/101/",
+    "blurb": "From registration to a ready-to-talk device, step by step",
+    "slideCount": 22
+  },
+  {
+    "number": "102",
+    "title": "Why Does Bravo Have 2 Different Interfaces?",
+    "href": "/bravo-university/102/",
+    "blurb": "A deeper look at Tap and Scan",
+    "slideCount": 22
+  },
+  {
+    "number": "103",
+    "title": "How Does Bravo Use AI?",
+    "href": "/bravo-university/103/",
+    "blurb": "And what makes it different from other AAC apps that use AI",
+    "slideCount": 20
+  }
+]

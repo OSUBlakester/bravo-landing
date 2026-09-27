@@ -23,6 +23,7 @@ import sys
 SRC_DIR = "bravo_university"
 OUT_DIR = "public/bravo-university"
 INDEX_PATH = os.path.join(OUT_DIR, "search-index.json")
+CATALOG_PATH = os.path.join("lib", "bravo-university-courses.json")
 
 # Exit control injected into every published deck. The exports have no way out
 # except the browser back button. Fixed at top-left: the deck's own pager sits
@@ -122,6 +123,7 @@ def publish(src_path: str) -> dict:
     open(os.path.join(course_dir, "index.html"), "w", encoding="utf-8").write(page)
 
     slides = []
+    slide_lines_cache = {}
     for m in re.finditer(r'<section[^>]*class="[^"]*deck-slide[^"]*"[^>]*id="(\d+)"[^>]*>(.*?)</section>', page, re.S):
         n, body = int(m.group(1)), m.group(2)
         lines = slide_lines(body)
@@ -130,12 +132,30 @@ def publish(src_path: str) -> dict:
         if not lines:
             continue
         heading = next((l for l in lines if 3 <= len(l) <= 70), lines[0][:70])
+        slide_lines_cache[n] = lines
         slides.append({"n": n, "title": heading, "text": " ".join(lines)})
+
+    # the title slide's second line is the deck's own subtitle; it makes a good
+    # default blurb for the catalog card
+    blurb = ""
+    if slides:
+        lines = slide_lines_cache.get(slides[0]["n"], [])
+        for line in lines[1:]:
+            if len(line) >= 15:
+                blurb = line
+                break
 
     print(f"  {number}: {len(seen)} images, {len(slides)} slides, "
           f"{len(raw):,} -> {len(page):,} chars ({len(page)/len(raw):.1%})")
 
-    return {"number": number, "title": short_title, "href": f"/bravo-university/{number}/", "slides": slides}
+    return {
+        "number": number,
+        "title": short_title,
+        "href": f"/bravo-university/{number}/",
+        "blurb": blurb,
+        "slideCount": len(slides),
+        "slides": slides,
+    }
 
 
 def main():
@@ -154,6 +174,16 @@ def main():
     size = os.path.getsize(INDEX_PATH)
     print(f"Search index: {INDEX_PATH} ({size:,} bytes, "
           f"{sum(len(c['slides']) for c in courses)} slides)")
+
+    # The catalog the site renders from. Generated so a new export shows up on
+    # /bravo-university without editing any TypeScript; blurbs can still be
+    # overridden by hand in lib/bravo-university.ts.
+    catalog = [{k: c[k] for k in ("number", "title", "href", "blurb", "slideCount")} for c in courses]
+    json.dump(catalog, open(CATALOG_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    open(CATALOG_PATH, "a", encoding="utf-8").write("\n")
+    print(f"Catalog:      {CATALOG_PATH} ({len(catalog)} courses)")
+    for c in catalog:
+        print(f"                {c['number']}  {c['title']}")
 
 
 if __name__ == "__main__":

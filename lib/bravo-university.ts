@@ -1,10 +1,18 @@
 /**
  * Bravo University course catalog.
  *
- * Adding a course: append an entry here. The catalog page groups courses by
- * level, derived from the first digit of the course number, so a new 200- or
- * 300-level course creates its group automatically.
+ * The course list is GENERATED. Drop a new export in bravo_university/ and run
+ *
+ *     python3 scripts/build-bravo-university.py
+ *
+ * which publishes the deck and rewrites bravo-university-courses.json. A new
+ * course then appears on /bravo-university with no edit here.
+ *
+ * Each card's blurb defaults to the subtitle on the deck's own title slide.
+ * To word one differently, add an entry to BLURB_OVERRIDES below.
  */
+
+import generated from "./bravo-university-courses.json"
 
 export type Course = {
   /** Course number. The first digit selects the level group. */
@@ -13,24 +21,19 @@ export type Course = {
   blurb: string
   /** Published page for the course. */
   href: string
-  /** Rough time to complete, shown on the card. Optional. */
-  duration?: string
+  /** Number of slides in the deck. */
+  slideCount: number
 }
 
-export const COURSES: Course[] = [
-  {
-    number: "101",
-    title: "Setting Up a New Account",
-    blurb: "From registration to a ready-to-talk device, step by step.",
-    href: "/bravo-university/101/",
-  },
-  {
-    number: "102",
-    title: "Why Does Bravo Have 2 Different Interfaces?",
-    blurb: "Tap and Scan side by side: how each one works, and how to tell which fits the person using Bravo.",
-    href: "/bravo-university/102/",
-  },
-]
+/** Hand-written blurbs that replace the subtitle pulled from the deck. */
+const BLURB_OVERRIDES: Record<string, string> = {
+  "102": "Tap and Scan side by side: how each one works, and how to tell which fits the person using Bravo.",
+}
+
+export const COURSES: Course[] = (generated as Course[]).map((course) => ({
+  ...course,
+  blurb: BLURB_OVERRIDES[course.number] ?? course.blurb,
+}))
 
 export const LEVELS: Record<string, { name: string; description: string }> = {
   "1": {
