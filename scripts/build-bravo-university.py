@@ -24,6 +24,30 @@ SRC_DIR = "bravo_university"
 OUT_DIR = "public/bravo-university"
 INDEX_PATH = os.path.join(OUT_DIR, "search-index.json")
 
+# Exit control injected into every published deck. The exports have no way out
+# except the browser back button. Fixed at top-left: the deck's own pager sits
+# bottom-right, and the player goes fullscreen on documentElement, so a fixed
+# element stays visible there too.
+EXIT_BUTTON = """
+<style>
+.bu-exit{position:fixed;z-index:999999;top:max(12px,env(safe-area-inset-top));
+left:max(12px,env(safe-area-inset-left));display:inline-flex;align-items:center;gap:8px;
+min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.35);
+background:rgba(17,17,17,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+color:#fff;font:600 14px/1 ui-sans-serif,system-ui,-apple-system,sans-serif;
+text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.35);
+transition:background-color .2s,border-color .2s,transform .2s}
+.bu-exit:hover{background:#ea580c;border-color:#ea580c;transform:translateY(-1px)}
+.bu-exit:focus-visible{outline:3px solid #fb923c;outline-offset:2px}
+.bu-exit svg{flex:none}
+@media print{.bu-exit{display:none}}
+</style>
+<a class="bu-exit" href="/bravo-university" aria-label="Exit this lesson and return to Bravo University">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+Exit Lesson</a>
+"""
+
 BLOCK_END = re.compile(r"</(?:div|p|li|h[1-6]|section|td|tr)>", re.I)
 TAG = re.compile(r"<[^>]+>")
 WS = re.compile(r"\s+")
@@ -88,6 +112,12 @@ def publish(src_path: str) -> dict:
 
     # images now load from this origin rather than from data: URIs
     page = page.replace("img-src data: blob:", "img-src 'self' data: blob:")
+
+    if "bu-exit" not in page:
+        if "</body>" in page:
+            page = page.replace("</body>", EXIT_BUTTON + "</body>", 1)
+        else:
+            page += EXIT_BUTTON
 
     open(os.path.join(course_dir, "index.html"), "w", encoding="utf-8").write(page)
 
