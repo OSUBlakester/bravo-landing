@@ -8,16 +8,6 @@ import { useState, type ReactNode } from "react"
 
 const BRAVO_YOUTUBE_URL = "https://www.youtube.com/@TalkWithBravo"
 
-/** Bravo University course series. Add new lessons here; the section renders them in order. */
-const BRAVO_UNIVERSITY_COURSES = [
-  {
-    number: "101",
-    title: "Setting Up a New Account",
-    blurb: "From registration to a ready-to-talk device, step by step.",
-    href: "/bravo-university/101/",
-  },
-] as const
-
 const BRAVO_WINS = [
   {
     icon: MessageCircle,
@@ -127,7 +117,7 @@ export default function BravoLandingPage() {
               <a href="#team" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Our Team</a>
               <a href="#mission" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Our Mission</a>
               <a href="#demo" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Demo</a>
-              <a href="#bravo-university" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Bravo University</a>
+              <a href="/bravo-university" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Bravo University</a>
               <a href="#faq" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">FAQ</a>
               <a href="#contact" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Contact</a>
               <a href="#open-source" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Open Source</a>
@@ -688,52 +678,26 @@ export default function BravoLandingPage() {
       </section>
       {/* Bravo University Section */}
       <section id="bravo-university" className="scroll-mt-16 py-24 bg-gray-50 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Bravo University" title="Learn Bravo, Step by Step" className="max-w-3xl mx-auto mb-12">
-            <p>
-              Short, guided courses for the admins who set Bravo up and keep it running &mdash; parents, caregivers,
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border-2 border-orange-200 bg-white p-8 md:p-12 shadow-sm text-center">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-600">
+              <GraduationCap className="h-4 w-4" />
+              Bravo University
+            </span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900">Learn Bravo, Step by Step</h2>
+            <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-orange-600" />
+            <p className="mt-6 text-xl text-gray-600">
+              Short, guided courses for the people who set Bravo up and keep it running &mdash; parents, caregivers,
               educators, and therapists. Free, like everything else about Bravo.
             </p>
-          </SectionHeading>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
-            {BRAVO_UNIVERSITY_COURSES.map((course) => (
-              <a
-                key={course.number}
-                href={course.href}
-                className="group block rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-              >
-                <Card className="h-full border-2 border-orange-200 bg-white shadow-sm transition-all group-hover:border-orange-400 group-hover:shadow-md">
-                  <CardContent className="flex h-full flex-col p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-orange-100">
-                        <GraduationCap className="h-5 w-5 text-orange-600" />
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-[0.14em] text-orange-600">
-                        Course {course.number}
-                      </span>
-                    </div>
-                    <h3 className="mt-4 text-xl font-semibold text-gray-900">{course.title}</h3>
-                    <p className="mt-2 flex-1 text-gray-600 leading-relaxed">{course.blurb}</p>
-                    <span className="mt-5 inline-flex items-center font-medium text-orange-700 group-hover:text-orange-800">
-                      Start course
-                      <span aria-hidden="true" className="ml-2 transition-transform group-hover:translate-x-1">
-                        &rarr;
-                      </span>
-                    </span>
-                  </CardContent>
-                </Card>
-              </a>
-            ))}
-          </div>
-
-          <p className="mt-10 text-center text-gray-600">
-            More courses are on the way. Have a topic you would like covered?{" "}
-            <a href="#contact" className="text-orange-700 underline underline-offset-4 hover:text-orange-800">
-              Let us know
+            <a
+              href="/bravo-university"
+              className="mt-8 inline-flex items-center rounded-md bg-orange-600 px-8 py-3 text-base font-medium text-white transition-colors hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            >
+              <GraduationCap className="mr-2 h-5 w-5" />
+              Browse Courses
             </a>
-            .
-          </p>
+          </div>
         </div>
       </section>
 
@@ -1105,7 +1069,7 @@ export default function BravoLandingPage() {
                   </a>
                 </li>
                 <li>
-                  <a href="#bravo-university" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/bravo-university" className="text-gray-400 hover:text-white transition-colors">
                     Bravo University
                   </a>
                 </li>
