@@ -24,6 +24,12 @@ export const COURSES: Course[] = [
     blurb: "From registration to a ready-to-talk device, step by step.",
     href: "/bravo-university/101/",
   },
+  {
+    number: "102",
+    title: "Why Does Bravo Have 2 Different Interfaces?",
+    blurb: "Tap and Scan side by side: how each one works, and how to tell which fits the person using Bravo.",
+    href: "/bravo-university/102/",
+  },
 ]
 
 export const LEVELS: Record<string, { name: string; description: string }> = {

@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { GraduationCap, Mail } from "lucide-react"
 import { coursesByLevel, COURSES } from "@/lib/bravo-university"
+import CourseSearch from "@/components/course-search"
 
 export default function BravoUniversity() {
   const levels = coursesByLevel()
@@ -44,6 +45,10 @@ export default function BravoUniversity() {
               Short, guided courses for the people who set Bravo up and keep it running &mdash; parents, caregivers,
               educators, and therapists. Free, like everything else about Bravo.
             </p>
+
+            <div className="mt-10">
+              <CourseSearch />
+            </div>
           </div>
         </section>
 
