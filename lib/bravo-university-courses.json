@@ -19,5 +19,40 @@
     "href": "/bravo-university/103/",
     "blurb": "And what makes it different from other AAC apps that use AI",
     "slideCount": 20
+  },
+  {
+    "number": "104",
+    "title": "How Do I Use the Wake Word to Ask a Question?",
+    "href": "/bravo-university/104/",
+    "blurb": "Five steps, on both Scan and Tap",
+    "slideCount": 15
+  },
+  {
+    "number": "201",
+    "title": "Updating Admin Settings",
+    "href": "/bravo-university/201/",
+    "blurb": "Every setting, section by section",
+    "slideCount": 20
+  },
+  {
+    "number": "202",
+    "title": "Changing Global Settings on the Tap Interface",
+    "href": "/bravo-university/202/",
+    "blurb": "Grid layout, the dynamic row, sight words and pictograms",
+    "slideCount": 13
+  },
+  {
+    "number": "203",
+    "title": "Changing and Adding Boards and Buttons",
+    "href": "/bravo-university/203/",
+    "blurb": "Board Settings on the Tap Interface",
+    "slideCount": 21
+  },
+  {
+    "number": "204",
+    "title": "Menu Settings",
+    "href": "/bravo-university/204/",
+    "blurb": "How the user gets to every board",
+    "slideCount": 10
   }
 ]
