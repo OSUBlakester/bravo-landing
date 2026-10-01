@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap } from "lucide-react"
+import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer } from "lucide-react"
 import Image from "next/image"
 import { useState, type ReactNode } from "react"
 
@@ -1008,6 +1008,51 @@ export default function BravoLandingPage() {
                   {social.label}
                 </a>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Make the Switch Section */}
+      <section id="make-the-switch" className="scroll-mt-16 py-24 bg-white border-t border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-600">
+                <Printer className="h-4 w-4" />
+                For Makers
+              </span>
+              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900">Make the Switch to Bravo</h2>
+              <div className="mt-5 h-1 w-16 rounded-full bg-orange-600" />
+              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+                A 3D-printable accessibility switch you can build yourself. It plugs in over USB and acts as a
+                keyboard, so it works with Bravo &mdash; and with any other app, toy or device that responds to a key
+                press.
+              </p>
+              <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+                Print files, wiring, and the board code are all free to download and free to change, under an open
+                licence.
+              </p>
+              <a
+                href="/make-the-switch"
+                className="mt-8 inline-flex items-center rounded-md bg-orange-600 px-8 py-3 text-base font-medium text-white transition-colors hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+              >
+                <Printer className="mr-2 h-5 w-5" />
+                Build Your Own Switch
+              </a>
+            </div>
+
+            <div className="rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-blue-50 p-8">
+              <Image
+                src="/make-the-switch/img/part-cap-holder.png"
+                alt="3D view of the printed switch cap holder"
+                width={900}
+                height={900}
+                className="mx-auto h-56 w-auto object-contain"
+              />
+              <p className="mt-4 text-center text-sm text-gray-600">
+                Five printed parts, a tactile button, and an RP2040 board.
+              </p>
             </div>
           </div>
         </div>

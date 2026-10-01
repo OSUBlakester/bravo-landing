@@ -1,0 +1,77 @@
+{
+  "parts": [
+    {
+      "slug": "base",
+      "name": "Base",
+      "stl": "/make-the-switch/files/base.stl",
+      "image": "/make-the-switch/img/part-base.png",
+      "dimensions": {
+        "x": 48.0,
+        "y": 48.0,
+        "z": 11.3
+      },
+      "triangles": 3838,
+      "bores": [
+        3.0,
+        3.8
+      ]
+    },
+    {
+      "slug": "button-housing",
+      "name": "Button Housing",
+      "stl": "/make-the-switch/files/button-housing.stl",
+      "image": "/make-the-switch/img/part-button-housing.png",
+      "dimensions": {
+        "x": 26.6,
+        "y": 31.1,
+        "z": 4.4
+      },
+      "triangles": 3910,
+      "bores": [
+        2.5,
+        5.1
+      ]
+    },
+    {
+      "slug": "cap-holder",
+      "name": "Cap Holder",
+      "stl": "/make-the-switch/files/cap-holder.stl",
+      "image": "/make-the-switch/img/part-cap-holder.png",
+      "dimensions": {
+        "x": 40.5,
+        "y": 40.5,
+        "z": 10.1
+      },
+      "triangles": 13996,
+      "bores": [
+        36.83
+      ]
+    },
+    {
+      "slug": "bolts",
+      "name": "Bolts",
+      "stl": "/make-the-switch/files/bolts.stl",
+      "image": "/make-the-switch/img/part-bolts.png",
+      "dimensions": {
+        "x": 16.6,
+        "y": 15.9,
+        "z": 2.5
+      },
+      "triangles": 3312,
+      "bores": []
+    },
+    {
+      "slug": "cap",
+      "name": "Cap",
+      "stl": "/make-the-switch/files/cap.stl",
+      "image": "/make-the-switch/img/part-cap.png",
+      "dimensions": {
+        "x": 43.0,
+        "y": 43.0,
+        "z": 8.0
+      },
+      "triangles": 1686,
+      "bores": []
+    }
+  ]
+}

@@ -54,6 +54,14 @@
       {
         "source": "/bravo-university/",
         "destination": "/bravo-university.html"
+      },
+      {
+        "source": "/make-the-switch",
+        "destination": "/make-the-switch.html"
+      },
+      {
+        "source": "/make-the-switch/",
+        "destination": "/make-the-switch.html"
       }
     ]
   }
