@@ -9,6 +9,7 @@ const BUNDLE = "/make-the-switch/files/make-the-switch-bravo.zip"
 const CIRCUITPYTHON_UF2 = "/make-the-switch/files/adafruit-circuitpython-waveshare_rp2040_zero-en_US-9.2.8.uf2"
 const CIRCUITPYTHON_UPSTREAM = "https://circuitpython.org/board/waveshare_rp2040_zero/"
 const TACTILE_SWITCH_SEARCH = "https://www.amazon.com/s?k=6x6x5mm+momentary+tactile+push+button+2+pin"
+const RP2040_ZERO_SEARCH = "https://www.amazon.com/s?k=rp2040+zero"
 
 const PART_NOTES: Record<string, string> = {
   base: "Holds the RP2040-Zero. The flange has three mounting holes so it can be screwed to a standard switch mount, and a cutout in the wall for the USB cable.",
@@ -128,7 +129,17 @@ export default function MakeTheSwitch() {
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-gray-900">Electronics</h3>
                   <ul className="mt-3 space-y-1 text-gray-600 text-sm leading-relaxed">
-                    <li>&bull; Waveshare RP2040-Zero board</li>
+                    <li>
+                      &bull;{" "}
+                      <a
+                        href={RP2040_ZERO_SEARCH}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-700 underline underline-offset-4 hover:text-orange-800"
+                      >
+                        Waveshare RP2040-Zero board
+                      </a>
+                    </li>
                     <li>
                       &bull;{" "}
                       <a
