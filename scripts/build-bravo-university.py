@@ -114,6 +114,10 @@ def publish(src_path: str) -> dict:
     # images now load from this origin rather than from data: URIs
     page = page.replace("img-src data: blob:", "img-src 'self' data: blob:")
 
+    canonical = f'<link rel="canonical" href="https://talkwithbravo.com/bravo-university/{number}/">'
+    if 'rel="canonical"' not in page and "</head>" in page:
+        page = page.replace("</head>", canonical + "\n</head>", 1)
+
     if "bu-exit" not in page:
         if "</body>" in page:
             page = page.replace("</body>", EXIT_BUTTON + "</body>", 1)

@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer } from "lucide-react"
+import Head from "next/head"
 import Image from "next/image"
 import { useState, type ReactNode } from "react"
 
@@ -105,6 +106,22 @@ export default function BravoLandingPage() {
   
   return (
     <div className="min-h-screen bg-white">
+      <Head>
+        <title>Bravo | Open Source AI-Powered AAC App</title>
+        <meta
+          name="description"
+          content="Bravo is a free, open source AAC application that uses AI to generate natural, personal communication options. Available on iOS, Android and Windows."
+        />
+        <meta property="og:title" content="Bravo | Open Source AI-Powered AAC App" />
+        <meta
+          property="og:description"
+          content="A free, open source AAC application that uses AI to give users their true voice."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://talkwithbravo.com/" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
