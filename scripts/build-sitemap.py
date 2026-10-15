@@ -44,11 +44,12 @@ def main():
     os.makedirs("public", exist_ok=True)
     open("public/sitemap.xml", "w").write("\n".join(lines) + "\n")
 
+    # Nothing is disallowed on purpose. The .html duplicates must stay crawlable
+    # or Google never reads the canonical tag that points at the clean URL, and
+    # blocking *.html would also hide Search Console's verification file.
     open("public/robots.txt", "w").write(
         "User-agent: *\n"
         "Allow: /\n\n"
-        "# Duplicates of the canonical pages; every page also declares a canonical link.\n"
-        "Disallow: /*.html$\n\n"
         f"Sitemap: {ORIGIN}/sitemap.xml\n"
     )
 

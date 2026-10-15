@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Duplicates of the canonical pages; every page also declares a canonical link.
-Disallow: /*.html$
-
 Sitemap: https://talkwithbravo.com/sitemap.xml
