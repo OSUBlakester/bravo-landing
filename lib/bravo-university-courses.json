@@ -75,5 +75,19 @@
     "href": "/bravo-university/207/",
     "blurb": "Help Bravo sound like the person using it",
     "slideCount": 23
+  },
+  {
+    "number": "208",
+    "title": "Text Messages for Scan Interface Users",
+    "href": "/bravo-university/208/",
+    "blurb": "Set it up once, then text independently",
+    "slideCount": 30
+  },
+  {
+    "number": "209",
+    "title": "Email Messages for Scan Interface Users",
+    "href": "/bravo-university/209/",
+    "blurb": "Set up once, then email independently",
+    "slideCount": 25
   }
 ]
