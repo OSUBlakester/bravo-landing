@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer, LogIn } from "lucide-react"
 import Head from "next/head"
+import SupportBanner from "@/components/support-banner"
 import Image from "next/image"
 import { useState, type ReactNode } from "react"
 
@@ -142,6 +143,8 @@ export default function BravoLandingPage() {
         <meta property="og:url" content="https://talkwithbravo.com/" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+
+      <SupportBanner />
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
