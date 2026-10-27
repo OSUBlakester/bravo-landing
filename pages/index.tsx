@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer, LogIn } from "lucide-react"
 import Head from "next/head"
@@ -177,10 +176,6 @@ export default function BravoLandingPage() {
               className="mx-auto mb-8 w-full max-w-xs sm:max-w-sm md:max-w-md h-auto drop-shadow-sm"
             />
 
-            <div className="flex flex-wrap justify-center gap-2 mb-6">
-              <Badge className="bg-orange-100 text-orange-800 border-orange-200">Revolutionary AAC Technology</Badge>
-              <Badge className="bg-green-100 text-green-800 border-green-200">Open Source &amp; Free</Badge>
-            </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-balance">
               Set Your Voice <span className="text-orange-600">Free</span> with Bravo
             </h1>
