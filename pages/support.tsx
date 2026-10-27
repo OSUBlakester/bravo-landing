@@ -32,6 +32,11 @@ export default function Support() {
           <h2 className="mt-8 text-xl font-semibold text-gray-900">Other resources</h2>
           <ul className="mt-3 space-y-2 text-gray-600">
             <li>
+              <a href="/schedule" className="text-orange-700 underline underline-offset-4 hover:text-orange-800">
+                Book a one-to-one video support session
+              </a>
+            </li>
+            <li>
               <a
                 href={YOUTUBE_URL}
                 target="_blank"

@@ -17,6 +17,7 @@ STATIC = [
     ("/bravo-university", "0.9", "weekly"),
     ("/make-the-switch", "0.8", "monthly"),
     ("/support", "0.6", "monthly"),
+    ("/schedule", "0.6", "monthly"),
     ("/privacy", "0.4", "yearly"),
     ("/terms", "0.4", "yearly"),
     ("/eula", "0.4", "yearly"),

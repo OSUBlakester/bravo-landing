@@ -62,6 +62,14 @@
       {
         "source": "/make-the-switch/",
         "destination": "/make-the-switch.html"
+      },
+      {
+        "source": "/schedule",
+        "destination": "/schedule.html"
+      },
+      {
+        "source": "/schedule/",
+        "destination": "/schedule.html"
       }
     ]
   }
