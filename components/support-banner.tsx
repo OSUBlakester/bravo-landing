@@ -30,13 +30,21 @@ export default function SupportBanner() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  function dismiss() {
+  /** The X means "stop showing me this"; remembered across visits. */
+  function dismissForGood() {
     setDismissed(true)
     try {
       window.localStorage.setItem(DISMISS_KEY, "1")
     } catch {
       // nothing to do; it will reappear next visit
     }
+  }
+
+  /** Following the link just gets the card out of the way of the section it
+   *  scrolled to. Someone who went to look at the store has shown interest,
+   *  so it should come back on their next visit. */
+  function hideForNow() {
+    setDismissed(true)
   }
 
   const visible = !dismissed && scrolledEnough
@@ -54,7 +62,7 @@ export default function SupportBanner() {
       >
         <button
           type="button"
-          onClick={dismiss}
+          onClick={dismissForGood}
           aria-label="Dismiss"
           tabIndex={visible ? 0 : -1}
           className="absolute right-3 top-3 rounded-full p-1.5 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
@@ -76,7 +84,7 @@ export default function SupportBanner() {
 
         <a
           href="#support"
-          onClick={dismiss}
+          onClick={hideForNow}
           tabIndex={visible ? 0 : -1}
           className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-lg bg-orange-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         >
