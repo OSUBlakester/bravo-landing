@@ -147,18 +147,8 @@ export default function BravoLandingPage() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-6 h-20">
-            <a href="#top" className="flex-none">
-              <Image
-                src="/images/bravo-logo.png"
-                alt="Bravo"
-                width={1094}
-                height={320}
-                priority
-                className="h-12 w-auto md:h-14"
-              />
-            </a>
-            <nav className="hidden xl:flex items-center gap-1">
+          <div className="flex items-center justify-center h-16">
+            <nav className="hidden lg:flex items-center gap-1">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
