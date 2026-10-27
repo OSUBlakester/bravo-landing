@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer, LogIn } from "lucide-react"
+import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer, LogIn, Video } from "lucide-react"
 import Head from "next/head"
 import SupportBanner from "@/components/support-banner"
 import Image from "next/image"
@@ -859,22 +859,13 @@ export default function BravoLandingPage() {
             </p>
           </SectionHeading>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 mb-12">
-            <Button
-              size="lg"
-              className="bg-white text-orange-700 hover:bg-orange-50"
-              onClick={() => window.open(BRAVO_REGISTER_URL, '_blank')}
+            <a
+              href="/schedule"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-base font-semibold text-orange-700 transition-colors hover:bg-orange-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Create a Free Account
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-orange-700 bg-transparent"
-              onClick={() => window.open(BRAVO_GITHUB_URL, '_blank')}
-            >
-              <Github className="mr-2 h-5 w-5" />
-              View on GitHub
-            </Button>
+              <Video className="mr-2 h-5 w-5" />
+              Book a Support Session
+            </a>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <form
@@ -966,7 +957,7 @@ export default function BravoLandingPage() {
             </Card>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
               className="bg-gray-900 hover:bg-gray-800 text-white"
@@ -974,6 +965,13 @@ export default function BravoLandingPage() {
             >
               <Github className="mr-2 h-5 w-5" />
               View the Source on GitHub
+            </Button>
+            <Button
+              size="lg"
+              className="bg-orange-600 hover:bg-orange-700 text-white"
+              onClick={() => window.open(BRAVO_REGISTER_URL, '_blank')}
+            >
+              Create a Free Account
             </Button>
           </div>
         </div>

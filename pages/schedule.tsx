@@ -20,8 +20,8 @@ const EXPECT = [
   },
   {
     icon: Clock,
-    title: "About 30 minutes",
-    body: "Long enough to work through setup or a specific problem together. Book more than one if you would rather take it in stages.",
+    title: "About an hour",
+    body: "Long enough to set Bravo up properly, or to work right through whatever is giving you trouble, without watching the clock.",
   },
   {
     icon: CheckCircle2,
@@ -124,7 +124,7 @@ export default function Schedule() {
 
           <section className="mt-16">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Before your session</h2>
-            <p className="mt-3 text-gray-600">A few things that make the half hour go further.</p>
+            <p className="mt-3 text-gray-600">A few things that make the hour go further.</p>
             <ul className="mt-6 space-y-3">
               {PREPARE.map((line) => (
                 <li key={line} className="flex gap-3 text-gray-700">
