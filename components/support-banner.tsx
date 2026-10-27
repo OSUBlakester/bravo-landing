@@ -2,60 +2,43 @@ import { useEffect, useState } from "react"
 import { Heart, X } from "lucide-react"
 
 const DISMISS_KEY = "bravo-support-banner-dismissed"
-const SHOW_AFTER_PX = 0 // 0 shows it straight away; raise to delay until scrolled
 
 /**
  * Floating prompt pointing at the Support Bravo section.
  *
- * Shown from the top of the page, but it can be dismissed and the dismissal
- * is remembered, so it never nags a returning reader. Storage access is
- * wrapped because it throws in private windows.
+ * It renders visible in the HTML and JavaScript only ever takes it away. An
+ * earlier version did the opposite -- hidden by default, revealed by an effect
+ * once scroll position and stored state had been read -- which meant anything
+ * that stopped the effect running (stale cache, a hydration failure, blocked
+ * storage) left it invisible with no way to tell why.
+ *
+ * The X hides it for good, remembered across visits. Following the link only
+ * gets it out of the way of the section it scrolled to.
  */
 export default function SupportBanner() {
-  const [dismissed, setDismissed] = useState(true) // assume hidden until storage is read
-  const [scrolledEnough, setScrolledEnough] = useState(false)
+  const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    let alreadyDismissed = false
     try {
-      alreadyDismissed = window.localStorage.getItem(DISMISS_KEY) === "1"
+      if (window.localStorage.getItem(DISMISS_KEY) === "1") setHidden(true)
     } catch {
-      // private window or blocked storage: just show it this session
+      // private window or blocked storage: leave it showing
     }
-    setDismissed(alreadyDismissed)
-
-    const onScroll = () => setScrolledEnough(window.scrollY >= SHOW_AFTER_PX)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  /** The X means "stop showing me this"; remembered across visits. */
+  if (hidden) return null
+
   function dismissForGood() {
-    setDismissed(true)
+    setHidden(true)
     try {
       window.localStorage.setItem(DISMISS_KEY, "1")
     } catch {
-      // nothing to do; it will reappear next visit
+      // nothing to do; it will be back next visit
     }
   }
 
-  /** Following the link just gets the card out of the way of the section it
-   *  scrolled to. Someone who went to look at the store has shown interest,
-   *  so it should come back on their next visit. */
-  function hideForNow() {
-    setDismissed(true)
-  }
-
-  const visible = !dismissed && scrolledEnough
-
   return (
-    <div
-      aria-hidden={!visible}
-      className={`fixed inset-x-4 bottom-4 z-40 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[22rem]
-        transition-all duration-300 motion-reduce:transition-none
-        ${visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`}
-    >
+    <div className="fixed inset-x-4 bottom-4 z-40 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-80">
       <aside
         aria-label="Support Bravo"
         className="relative rounded-2xl border-2 border-orange-200 bg-white p-5 shadow-xl"
@@ -64,7 +47,6 @@ export default function SupportBanner() {
           type="button"
           onClick={dismissForGood}
           aria-label="Dismiss"
-          tabIndex={visible ? 0 : -1}
           className="absolute right-3 top-3 rounded-full p-1.5 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         >
           <X className="h-4 w-4" />
@@ -84,8 +66,7 @@ export default function SupportBanner() {
 
         <a
           href="#support"
-          onClick={hideForNow}
-          tabIndex={visible ? 0 : -1}
+          onClick={() => setHidden(true)}
           className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-lg bg-orange-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         >
           Store &amp; donations
