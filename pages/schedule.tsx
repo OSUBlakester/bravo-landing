@@ -10,7 +10,7 @@ import CalEmbed from "@/components/cal-embed"
  * URL after cal.com. Empty until the Cal.com account exists; the page then
  * shows the email fallback instead of the calendar.
  */
-const CAL_LINK = ""
+const CAL_LINK = "bravo-admin-lqdbh2/bravo-support-session"
 
 const EXPECT = [
   {
