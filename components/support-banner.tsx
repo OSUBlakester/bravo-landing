@@ -2,15 +2,14 @@ import { useEffect, useState } from "react"
 import { Heart, X } from "lucide-react"
 
 const DISMISS_KEY = "bravo-support-banner-dismissed"
-const SHOW_AFTER_PX = 700
+const SHOW_AFTER_PX = 0 // 0 shows it straight away; raise to delay until scrolled
 
 /**
  * Floating prompt pointing at the Support Bravo section.
  *
- * Deliberately not the kind of popup that greets you on arrival: it waits
- * until the reader has scrolled past the hero, it can be dismissed, and the
- * dismissal is remembered. Storage access is wrapped because it throws in
- * private windows.
+ * Shown from the top of the page, but it can be dismissed and the dismissal
+ * is remembered, so it never nags a returning reader. Storage access is
+ * wrapped because it throws in private windows.
  */
 export default function SupportBanner() {
   const [dismissed, setDismissed] = useState(true) // assume hidden until storage is read
@@ -25,7 +24,7 @@ export default function SupportBanner() {
     }
     setDismissed(alreadyDismissed)
 
-    const onScroll = () => setScrolledEnough(window.scrollY > SHOW_AFTER_PX)
+    const onScroll = () => setScrolledEnough(window.scrollY >= SHOW_AFTER_PX)
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
