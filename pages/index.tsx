@@ -2,12 +2,34 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer } from "lucide-react"
+import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer, LogIn } from "lucide-react"
 import Head from "next/head"
 import Image from "next/image"
 import { useState, type ReactNode } from "react"
 
 const BRAVO_YOUTUBE_URL = "https://www.youtube.com/@TalkWithBravo"
+const BRAVO_LOGIN_URL = "https://app.talkwithbravo.com/"
+
+const NAV_LINKS = [
+  { href: "#features", label: "Features" },
+  { href: "#story", label: "Our Story" },
+  { href: "#team", label: "Our Team" },
+  { href: "#mission", label: "Our Mission" },
+  { href: "#demo", label: "Demo" },
+  { href: "/bravo-university", label: "Bravo University" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Contact" },
+  { href: "#open-source", label: "Open Source" },
+  { href: "#support", label: "Support Bravo" },
+] as const
+
+/** Shared geometry so every hero button is the same size and shape. */
+const HERO_BUTTON =
+  "inline-flex h-14 w-full items-center justify-center gap-3 rounded-xl border-2 px-6 text-base font-semibold " +
+  "shadow-sm transition-all hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2"
+
+const HERO_BUTTON_OUTLINE =
+  "border-orange-300 bg-white text-gray-900 hover:border-orange-500 hover:bg-orange-50 focus-visible:outline-orange-500"
 
 const BRAVO_WINS = [
   {
@@ -125,46 +147,46 @@ export default function BravoLandingPage() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-3">
-              <Image src="/images/bravo-logo.jpg" alt="Bravo Logo" width={120} height={40} className="h-10 w-auto" />
-            </div>
-            <nav className="hidden xl:flex items-center space-x-5 text-sm">
-              <a href="#features" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Features</a>
-              <a href="#story" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Our Story</a>
-              <a href="#team" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Our Team</a>
-              <a href="#mission" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Our Mission</a>
-              <a href="#demo" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Demo</a>
-              <a href="/bravo-university" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Bravo University</a>
-              <a href="#faq" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">FAQ</a>
-              <a href="#contact" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Contact</a>
-              <a href="#open-source" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Open Source</a>
-              <a href="#support" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">Support Bravo</a>
+          <div className="flex items-center justify-between gap-6 h-20">
+            <a href="#top" className="flex-none">
+              <Image
+                src="/images/bravo-logo.png"
+                alt="Bravo"
+                width={1094}
+                height={320}
+                priority
+                className="h-12 w-auto md:h-14"
+              />
+            </a>
+            <nav className="hidden xl:flex items-center gap-1">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="group relative rounded-lg px-3 py-2 text-sm font-semibold tracking-tight text-gray-700 transition-colors hover:text-orange-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+                >
+                  {link.label}
+                  <span className="absolute inset-x-3 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-orange-600 transition-transform duration-200 group-hover:scale-x-100" />
+                </a>
+              ))}
             </nav>
-            <div className="flex gap-2">
-              <Button 
-                className="bg-orange-600 hover:bg-orange-700 text-white"
-                onClick={() => {
-                  document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              >
-                Try Demo
-              </Button>
-              <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white"
-                onClick={() => window.open("https://app.talkwithbravo.com/", '_blank')}
-              >
-                Log Into My Account
-              </Button>
-            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-orange-50 to-blue-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="top" className="relative overflow-hidden bg-gradient-to-br from-orange-50 to-blue-50 py-20 md:py-24">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            <Image
+              src="/images/bravo-logo.png"
+              alt="Bravo"
+              width={1094}
+              height={320}
+              priority
+              className="mx-auto mb-8 w-full max-w-xs sm:max-w-sm md:max-w-md h-auto drop-shadow-sm"
+            />
+
             <div className="flex flex-wrap justify-center gap-2 mb-6">
               <Badge className="bg-orange-100 text-orange-800 border-orange-200">Revolutionary AAC Technology</Badge>
               <Badge className="bg-green-100 text-green-800 border-green-200">Open Source &amp; Free</Badge>
@@ -175,50 +197,50 @@ export default function BravoLandingPage() {
             <p className="text-xl text-gray-600 mb-4 max-w-3xl mx-auto text-pretty">
               An innovative, Google Gemini AI-enhanced AAC application that finally gives you full freedom of expression.
             </p>
-            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto text-pretty">
+            <p className="text-lg text-gray-600 mb-10 max-w-3xl mx-auto text-pretty">
               Bravo is <span className="font-semibold text-gray-900">open source</span> and free for everyone. The code
               is public, the community is welcome, and communication should never come with a price tag.
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
+
+            {/* One geometry for every button: same height, radius, padding and type size */}
+            <div className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
               <a
                 href={BRAVO_APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download Bravo AAC on the Apple App Store"
-                className="inline-flex items-center justify-center gap-3 rounded-md bg-black px-6 py-3 text-white transition-colors hover:bg-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+                className={`${HERO_BUTTON} border-gray-900 bg-gray-900 text-white hover:bg-black focus-visible:outline-gray-900`}
               >
-                <svg viewBox="0 0 384 512" aria-hidden="true" className="h-7 w-7 flex-none" fill="currentColor">
+                <svg viewBox="0 0 384 512" aria-hidden="true" className="h-6 w-6 flex-none" fill="currentColor">
                   <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
                 </svg>
-                <span className="text-left leading-tight">
-                  <span className="block text-[11px] font-medium">Download on the</span>
-                  <span className="block text-lg font-semibold -mt-0.5">App Store</span>
-                </span>
+                Download on the App Store
               </a>
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" onClick={() => window.open(BRAVO_YOUTUBE_URL, '_blank')}>
-                <Play className="mr-2 h-5 w-5" />
+
+              <a
+                href={BRAVO_YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${HERO_BUTTON} ${HERO_BUTTON_OUTLINE}`}
+              >
+                <Play className="h-6 w-6 flex-none text-orange-600" />
                 Watch Demo
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-navy-600 text-navy-600 hover:bg-navy-50 bg-transparent"
-                onClick={() => {
-                  document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              >
-                <ExternalLink className="mr-2 h-5 w-5" />
+              </a>
+
+              <a href="#demo" className={`${HERO_BUTTON} ${HERO_BUTTON_OUTLINE}`}>
+                <ExternalLink className="h-6 w-6 flex-none text-orange-600" />
                 Try Live Demo
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-gray-900 text-gray-900 hover:bg-gray-100 bg-transparent"
-                onClick={() => window.open(BRAVO_GITHUB_URL, '_blank')}
+              </a>
+
+              <a
+                href={BRAVO_LOGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${HERO_BUTTON} ${HERO_BUTTON_OUTLINE}`}
               >
-                <Github className="mr-2 h-5 w-5" />
-                View on GitHub
-              </Button>
+                <LogIn className="h-6 w-6 flex-none text-orange-600" />
+                Log Into My Account
+              </a>
             </div>
           </div>
         </div>
@@ -1097,10 +1119,10 @@ export default function BravoLandingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <Image
-                src="/images/bravo-logo.jpg"
-                alt="Bravo Logo"
-                width={150}
-                height={50}
+                src="/images/bravo-logo.png"
+                alt="Bravo"
+                width={1094}
+                height={320}
                 className="h-12 w-auto mb-4 brightness-0 invert"
               />
               <p className="text-gray-400">
