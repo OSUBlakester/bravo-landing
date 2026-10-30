@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer, LogIn, Video } from "lucide-react"
+import { Play, MessageCircle, Brain, Users, Smartphone, Zap, Heart, Mail, ExternalLink, Info, Hand, Gamepad2, BookOpen, Settings2, ArrowRightLeft, Languages, Github, Coffee, Shirt, Code2, Instagram, Youtube, Facebook, Plane, Sparkles, MessagesSquare, Trophy, GraduationCap, Printer, LogIn, Video } from "lucide-react"
 import Head from "next/head"
 import SupportBanner from "@/components/support-banner"
 import Image from "next/image"
@@ -66,6 +66,7 @@ const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://www.instagram.com/talkwithbravo/", handle: "@talkwithbravo" },
   { label: "YouTube", href: BRAVO_YOUTUBE_URL, handle: "@TalkWithBravo" },
   { label: "TikTok", href: "https://www.tiktok.com/@talkwithbravo", handle: "@talkwithbravo" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61595172395270", handle: "Talk With Bravo" },
 ] as const
 
 /** TikTok mark — lucide-react has no TikTok icon, so this is an inline SVG. */
@@ -80,6 +81,7 @@ function TikTokIcon({ className = "" }: { className?: string }) {
 function SocialIcon({ label, className = "" }: { label: string; className?: string }) {
   if (label === "Instagram") return <Instagram className={className} aria-hidden="true" />
   if (label === "YouTube") return <Youtube className={className} aria-hidden="true" />
+  if (label === "Facebook") return <Facebook className={className} aria-hidden="true" />
   return <TikTokIcon className={className} />
 }
 
@@ -1109,7 +1111,7 @@ export default function BravoLandingPage() {
                 alt="Bravo"
                 width={1094}
                 height={320}
-                className="h-12 w-auto mb-4 brightness-0 invert"
+                className="h-12 w-auto mb-4"
               />
               <p className="text-gray-400">
                 Setting voices free with AI-powered AAC technology. Created with love for Brady and all AAC users.
