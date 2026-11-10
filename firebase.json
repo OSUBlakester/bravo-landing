@@ -71,6 +71,98 @@
         "source": "/schedule/",
         "destination": "/schedule.html"
       }
+    ],
+    "redirects": [
+      {
+        "source": "/index.html",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/privacy.html",
+        "destination": "/privacy",
+        "type": 301
+      },
+      {
+        "source": "/privacy/",
+        "destination": "/privacy",
+        "type": 301
+      },
+      {
+        "source": "/terms.html",
+        "destination": "/terms",
+        "type": 301
+      },
+      {
+        "source": "/terms/",
+        "destination": "/terms",
+        "type": 301
+      },
+      {
+        "source": "/eula.html",
+        "destination": "/eula",
+        "type": 301
+      },
+      {
+        "source": "/eula/",
+        "destination": "/eula",
+        "type": 301
+      },
+      {
+        "source": "/notices.html",
+        "destination": "/notices",
+        "type": 301
+      },
+      {
+        "source": "/notices/",
+        "destination": "/notices",
+        "type": 301
+      },
+      {
+        "source": "/support.html",
+        "destination": "/support",
+        "type": 301
+      },
+      {
+        "source": "/support/",
+        "destination": "/support",
+        "type": 301
+      },
+      {
+        "source": "/schedule.html",
+        "destination": "/schedule",
+        "type": 301
+      },
+      {
+        "source": "/schedule/",
+        "destination": "/schedule",
+        "type": 301
+      },
+      {
+        "source": "/bravo-university.html",
+        "destination": "/bravo-university",
+        "type": 301
+      },
+      {
+        "source": "/bravo-university/",
+        "destination": "/bravo-university",
+        "type": 301
+      },
+      {
+        "source": "/make-the-switch.html",
+        "destination": "/make-the-switch",
+        "type": 301
+      },
+      {
+        "source": "/make-the-switch/",
+        "destination": "/make-the-switch",
+        "type": 301
+      },
+      {
+        "source": "/bravo-university/:course/index.html",
+        "destination": "/bravo-university/:course/",
+        "type": 301
+      }
     ]
   }
 }

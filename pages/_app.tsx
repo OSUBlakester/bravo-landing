@@ -11,18 +11,24 @@ export const SITE_ORIGIN = "https://talkwithbravo.com"
  * which one is canonical. Without this Google reports
  * "Duplicate without user-selected canonical" and leaves pages unindexed.
  */
-function canonicalFor(pathname: string) {
-  if (pathname === "/" || pathname === "/404") return SITE_ORIGIN + "/"
+function canonicalFor(pathname: string): string | null {
+  // The error and 404 pages are not real URLs; pointing a canonical at them, or
+  // at the home page on their behalf, only misleads crawlers.
+  if (pathname === "/404" || pathname === "/_error") return null
+  if (pathname === "/") return SITE_ORIGIN + "/"
   return SITE_ORIGIN + pathname.replace(/\/$/, "")
 }
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter()
 
+  const canonical = canonicalFor(pathname)
+
   return (
     <>
       <Head>
-        <link rel="canonical" href={canonicalFor(pathname)} />
+        {canonical && <link rel="canonical" href={canonical} />}
+        {!canonical && <meta name="robots" content="noindex" />}
       </Head>
       <Component {...pageProps} />
     </>
